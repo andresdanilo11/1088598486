@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('ganadores', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->string('city');
+            $table->string('country');
             $table->timestamps();
         });
     }
