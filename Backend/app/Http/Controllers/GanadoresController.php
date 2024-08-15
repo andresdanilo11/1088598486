@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Ganador;
 use Faker\Factory as Faker;
 
-class GandoresController extends Controller
+class GanadoresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -67,10 +67,11 @@ class GandoresController extends Controller
     public function  aleatorios()
     {
         for ($i=0 ; $i<1001;$i++){
-            $ganadores -> Ganador ('name');
-            $ganadores -> Ganador ('email');
-            $ganadores -> Ganador ('city');
-            $ganadores -> Ganador ('country');
+            $ganadores = new ganadores();
+            $ganadores -> name = $faker -> name;
+            $ganadores -> email = $faker -> email;
+            $ganadores -> city = $faker -> city;
+            $ganadores -> country = $faker -> country;
             $ganadores -> save();
         }
         
