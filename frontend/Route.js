@@ -3,7 +3,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "react-native-vector-icons";
 import Home from "./Home";
-import Welcome from "./Welcome";
 import Destinos from "./Destinos";
 import Contactos from "./Contactos";
 
@@ -19,8 +18,6 @@ export default function Route() {
 
             if (route.name === "Home") {
               iconName = focused ? "home" : "home-outline";
-            } else if (route.name === "Welcome") {
-              iconName = focused ? "rocket" : "rocket-outline";
             } else if (route.name === "Destinos") {
               iconName = focused ? "rocket" : "rocket-outline";
             }else if (route.name === "Contactos") {
@@ -37,7 +34,6 @@ export default function Route() {
         })}
       >
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Welcome" component={Welcome} />
         <Tab.Screen name="Destinos" component={Destinos} />
         <Tab.Screen name="Conatactos" component={Contactos} />
       </Tab.Navigator>
