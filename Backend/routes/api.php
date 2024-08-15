@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GanadoresController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/ganadores', [GanadoresController::class, 'aleatorios']);
-
+Route::get('/ganadores/aleatorios', [GanadoresController::class, 'aleatorios']);
+Route::get('/ganadores', [GanadoresController::class, 'index']);
+Route::put('/ganadores/{id}', [GanadoresController::class, 'update']);
+Route::delete('/ganadores/{id}', [GanadoresController::class, 'destroy']);

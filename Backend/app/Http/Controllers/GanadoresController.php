@@ -13,7 +13,7 @@ class GanadoresController extends Controller
      */
     public function index()
     {
-        //
+        return Ganador::paginate(2);
     }
 
     /**
@@ -53,7 +53,8 @@ class GanadoresController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $ganador = Ganador::findOrFail($id);
+        $ganador->update($request->all());
     }
 
     /**
@@ -61,18 +62,19 @@ class GanadoresController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $ganador = Ganador::findOrFail($id);
+        $ganador->delete();
     }
 
     public function  aleatorios()
     {
         for ($i=0 ; $i<1001;$i++){
-            $ganadores = new ganadores();
-            $ganadores -> name = $faker -> name;
-            $ganadores -> email = $faker -> email;
-            $ganadores -> city = $faker -> city;
-            $ganadores -> country = $faker -> country;
-            $ganadores -> save();
+            $ganador = new Ganador();
+            $ganador -> name = $faker -> name;
+            $ganador -> email = $faker ->unique()->email;
+            $ganador -> city = $faker -> city;
+            $ganador -> country = $faker -> country;
+            $ganador -> save();
         }
         
     }
